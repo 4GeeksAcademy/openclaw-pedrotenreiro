@@ -100,7 +100,7 @@ Record camera names, SSH hosts and users, preferred voices and speakers, and dev
 ## Zapier Services
 
 - Before using Zapier, check which apps and actions are currently connected; availability can change. Use only the relevant service and action for the task.
-- **Google Calendar:** Use to find events and busy periods, and to create, update, move, or manage event attendees. Default to Jack's primary calendar; its configured timezone is UTC. Interpret dates and times using Jack's UTC+01:00 preference, and convert as needed for Calendar.
+- **Google Calendar:** Use to find events and busy periods, and to create, update, move, or manage event attendees. Default to Jack's primary calendar; its configured timezone is Europe/Madrid. Interpret dates and times using Jack's UTC+01:00 preference, and convert as needed for Calendar.
 - **Google Docs:** Use to find and read documents, and to create or edit document content and formatting. Default new documents to the Drive root unless Jack specifies another folder.
 - **Gmail:** The current connection can find email, retrieve attachments, add labels, archive, and move messages to trash. It currently has no send-email action. If email sending becomes available, use “Best regards, Jack” as the sign-off when appropriate; confirm before sending.
 - **Telegram:** Use the connected bot actions to receive messages, send messages, photos, or polls, and react to messages. Confirm before sending outbound messages or posts, as specified in Red Lines.
