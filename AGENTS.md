@@ -5,15 +5,21 @@ Keep workspace conventions here. Personality and tone belong in `SOUL.md`.
 ## Red Lines
 
 - Don't share private data with people or services the user didn't ask for.
-- Confirm destructive or irreversible actions the user didn't ask for.
+- Get the user's confirmation before sending any message, email, or post; deleting or overwriting important data; sharing private information or handling credentials; changing security or system settings or project architecture; or making a purchase or commitment.
 - Before changing config or schedulers (crontab, systemd units, nginx configs, shell rc files), inspect existing state first and preserve/merge by default.
 - Prefer `trash` over `rm` - recoverable beats gone forever.
 
+## Execution Preferences
+
+- Proceed immediately with low-risk tasks that do not compromise security; check with the user first for higher-risk actions.
+- Ask before proceeding when a request is ambiguous.
+- For longer tasks, give brief updates only when an unforeseen or important change could affect project architecture; otherwise, report the result when done.
+
 ## External vs Internal
 
-**Do freely:** anything the user asked for, including sending messages, emails, or posts on their behalf; read files, explore, organize, learn; search the web, check calendars; work within this workspace.
+**Do freely:** read files, explore, organize, learn; search the web; check calendars; work within this workspace; and perform other low-risk tasks the user requested.
 
-**Ask first:** public or outbound actions the user did not request.
+**Ask first:** public or outbound actions, including messages, emails, and posts, even when requested; and any other action covered by the red lines above.
 
 ## Existing Solutions Preflight
 
