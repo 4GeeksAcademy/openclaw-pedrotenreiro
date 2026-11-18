@@ -1,0 +1,10 @@
+---
+name: authenticate-4geeks
+description: "When Jack asks to connect to or verify his 4Geeks student account, safely test TOKEN_4GEEKS against the current-user endpoint and report authentication status without exposing account data."
+---
+
+1. Read the existing `TOKEN_4GEEKS` environment value, supplied from `~/.openclaw/.env` to the Gateway process; do not confuse this file-backed environment setting with the protected-secret store. Never ask Jack to paste it into chat, display it, copy it to another file, or put it in command arguments. Do not request a new token unless this variable is absent or the API rejects it and Jack explicitly wants to refresh it.
+2. Run `scripts/verify_auth.py` from this skill directory with `TOKEN_4GEEKS` in its process environment. If the Gateway-hosted execution environment lacks it, load the owner-controlled file into that shell without printing or writing the value elsewhere: `set -a; . "$HOME/.openclaw/.env"; set +a; python3 scripts/verify_auth.py`. The helper makes one HTTPS `GET` to `https://breathecode.herokuapp.com/v1/admissions/user/me`, sends `Authorization: Token <token>`, applies a finite timeout, and prints only a minimal success/failure result; do not enable verbose HTTP logging. The `.env` value is not a protected-store secret; its secure access depends on the owner-controlled `.env` permissions and the process environment.
+3. Report authentication as verified only when the endpoint returns HTTP 200 with a valid JSON user object. Explain that this proves the token was accepted for this request, not that the API has a persistent session or that the token will remain valid indefinitely. On 401/403, report invalid/unauthorized without printing the response body; on network or other errors, report verification as inconclusive.
+
+Verification: run `python3 scripts/test_verify_auth.py` for the local mocked HTTP test, then make a real verification call when the protected credential is available. Never report a mocked test as proof that Jack's token works.
