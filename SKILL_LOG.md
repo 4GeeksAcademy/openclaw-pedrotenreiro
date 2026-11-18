@@ -24,4 +24,12 @@ This log records only verified implementation and test outcomes. No credentials 
 - **Number and skill objective:** 3 — Retrieve all assigned 4Geeks tasks and identify pending or revision-required work.
 - **Employed task:** Created `skills/get-4geeks-pending-work/` with a model-invocable workflow, a paginated Python helper for `GET /v1/assignment/user/me/task`, and offline tests. It reports task titles/types and pending/revision state while omitting private submission URLs.
 - **Real final result:** Four offline tests pass for pending/rejected filtering, pagination, missing-token handling, and safe unauthorized errors. The live authenticated API returned all 105 assigned tasks across two pages and 13 pending tasks (11 exercises and 2 projects); no tasks were marked rejected. Skill format validation passes.
-- **Working status:** Complete. Skill 4 has not been started. No credentials were included in this log.
+- **Working status:** Complete. Commit: `259e0be` (`Skill 3 - completed`). No credentials were included in this log.
+
+## Skill 4 — Get my progress summary
+
+- **Originally used prompt:** “Skill 4 - Get my progress summary: OpenClaw can give me an overview of how far along I am in the course.”
+- **Number and skill objective:** 4 — Aggregate all assigned task statuses into a clearly qualified progress snapshot.
+- **Employed task:** Created `skills/get-4geeks-progress-summary/` with an authenticated, paginated Python helper, offline unit tests, and instructions explaining that task completion ratio is not an official course completion measure.
+- **Real final result:** Five offline tests pass, covering status aggregation, pagination, incomplete pages, missing-token safety, and unauthorized response handling. The live authenticated API returned 105 assigned tasks: 13 pending, 7 submitted awaiting review, and 85 graded. The helper's task-based completion ratio is 88% (submitted plus graded divided by assigned). Skill format validation passes.
+- **Working status:** Complete as a task-status snapshot, not an official course-completion percentage. Skill 5 has not been started. No credentials were included in this log.
