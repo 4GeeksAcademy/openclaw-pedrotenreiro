@@ -32,4 +32,12 @@ This log records only verified implementation and test outcomes. No credentials 
 - **Number and skill objective:** 4 — Aggregate all assigned task statuses into a clearly qualified progress snapshot.
 - **Employed task:** Created `skills/get-4geeks-progress-summary/` with an authenticated, paginated Python helper, offline unit tests, and instructions explaining that task completion ratio is not an official course completion measure.
 - **Real final result:** Five offline tests pass, covering status aggregation, pagination, incomplete pages, missing-token safety, and unauthorized response handling. The live authenticated API returned 105 assigned tasks: 13 pending, 7 submitted awaiting review, and 85 graded. The helper's task-based completion ratio is 88% (submitted plus graded divided by assigned). Skill format validation passes.
-- **Working status:** Complete as a task-status snapshot, not an official course-completion percentage. Skill 5 has not been started. No credentials were included in this log.
+- **Working status:** Complete as a task-status snapshot, not an official course-completion percentage. Commit: `14ceab4` (`Skill 4 - completed`). No credentials were included in this log.
+
+## Skill 5 — 4Geeks Event Lookups
+
+- **Originally used prompt:** “Skill 5 - 4Geeks Event Lookups: OpenClaw can retrieve any upcoming event, with timestamp and availability.”
+- **Number and skill objective:** 5 — Retrieve upcoming 4Geeks events with timestamps and availability where the API provides it.
+- **Employed task:** Created `skills/get-4geeks-events/` with an authenticated API helper, offline tests, and a model-invocable skill. It reports event title, start/end timestamps, status, and capacity without treating capacity as remaining seats.
+- **Real final result:** Four offline tests pass; live authenticated call returned 4 upcoming events with ISO-8601 timestamps and ACTIVE status. The API provides capacity, but no availability or remaining-seat field; the skill accurately reports availability as not provided. Skill format validation passes.
+- **Working status:** Event retrieval is complete; seat availability cannot be determined from this endpoint's returned data. Skill 6 has not been started. No credentials were included in this log.
